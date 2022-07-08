@@ -1,13 +1,12 @@
-#include <stdio.h>
-#include<stdbool.h>  
+#include <stdio.h> 
 #include <assert.h>
 #include "Bms.h"
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
 
-  bool tempVal = checkTemp(temperature);
-  bool socVal = checkSoc(soc);
-  bool chargeRateVal = checkchargeRate(chargeRate);
+  int tempVal = checkTemp(temperature);
+  int socVal = checkSoc(soc);
+  int chargeRateVal = checkchargeRate(chargeRate);
   
   return (tempVal && socVal && chargeRateVal);
 }
