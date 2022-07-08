@@ -4,9 +4,9 @@
 
 int batteryIsOk(float temperature, float soc, float chargeRate) {
 
-  bool tempVal = checkTemp(temperature);
-  bool socVal = checkSoc(soc);
-  bool chargeRateVal = checkchargeRate(chargeRate);
+  boolean tempVal = checkTemp(temperature);
+  boolean socVal = checkSoc(soc);
+  boolean chargeRateVal = checkchargeRate(chargeRate);
   
   return (tempVal && socVal && chargeRateVal);
 }
