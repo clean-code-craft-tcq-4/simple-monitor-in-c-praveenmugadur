@@ -1,5 +1,4 @@
-#include<stdio.h>
-#include<stdbool.h>  
+#include<stdio.h>  
 #include "Bms.h"
 
 int batteryCheck(float value, float min, float max)
@@ -12,7 +11,7 @@ int batteryCheck(float value, float min, float max)
     return Check_OK;
 }
 
-bool checkTemp(float temperature)
+int checkTemp(float temperature)
 {
    int val = batteryCheck(temperature, 0, 45);
     if(val == Check_NOT_OK){
@@ -24,7 +23,7 @@ bool checkTemp(float temperature)
     }      
 }
 
-bool checkSoc(float soc)
+int checkSoc(float soc)
 {
    int val = batteryCheck(soc, 20, 80);
     if(val == Check_NOT_OK){
@@ -36,7 +35,7 @@ bool checkSoc(float soc)
     }      
 }
 
-bool checkchargeRate(float chargeRate)
+int checkchargeRate(float chargeRate)
 {
    int val = batteryCheck(chargeRate, 0, 0.8);
     if(val == Check_NOT_OK){
