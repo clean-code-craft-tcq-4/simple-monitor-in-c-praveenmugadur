@@ -107,6 +107,51 @@ float BatteryConvertTemp(float temp, char tempUnit)
 	}
 }
 
+
+
+/****************ChargeRate*****************************************/
+int BatteryChargeRateLowLimit(float chargeRate)
+{	
+	if ((chargeRate >= MIN_LOWCHARGERATEBREACH) || (chargeRate <= MIN_CHARGERATENORMAL))
+	{
+		return E_NOT_OK; 
+	}
+	else
+	{
+		return E_OK; 
+	}
+}
+
+int BatteryChargeRateHighLimit(float chargeRate)
+{
+	if ((chargeRate >= MIN_HIGHCHARGERATEWARNING) || (chargeRate <= MIN_HIGHCHARGERATEBREACH))
+	{
+		return E_NOT_OK; 
+	}
+	else 
+	{
+		return E_NOT_OK; 
+	}
+	
+}
+
+int checkchargeRate(float chargeRate )
+{
+	int chargeRateStatus = E_OK;
+	if((chargeRate >= MIN_LOWCHARGERATEBREACH) && (chargeRate < MIN_HIGHCHARGERATEWARNING))
+	{
+		chargeRateStatus = BatteryChargeRateLowLimit(chargeRate);
+	}
+	else
+	{
+		chargeRateStatus = BatteryChargeRateHighLimit(chargeRate);
+	}
+	return chargeRateStatus;
+}
+
+
+
+
 int batteryCheck( float soc, float temp , float chargeRate, char tempUnit )
 {	
 	float stateOfCharge = checkSocOk(soc);
