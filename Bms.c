@@ -1,48 +1,53 @@
 #include<stdio.h>  
 #include "Bms.h"
 
-int batteryCheck(float value, float min, float max)
-{
-    if (value < min || value > max)
-    {
-        return Check_NOT_OK;
-    }
-
-    return Check_OK;
+/****************SOC*****************************************/
+int BatterySocLowLimit(float soc)
+{	
+	if ((soc >= MIN_LOWSOCBREACH) || (soc <= MIN_SOCNORMAL))
+	{
+		return E_NOT_OK; 
+	}
+	else
+	{
+		/*SOC of Battery is in charging state*/
+		return E_OK; 
+	}
 }
 
-int checkTemp(float temperature)
+int BatterySocHighLimit(float soc)
 {
-   int val = batteryCheck(temperature, 0, 45);
-    if(val == Check_NOT_OK){
-         printf("Temperature out of range!\n");
-        return Check_NOT_OK;
-    }
-    else {
-         return Check_OK;
-    }      
+	if ((soc >= MIN_HIGHSOCWARNING) || (soc <= MIN_HIGHSOCBREACH))
+	{
+		return E_NOT_OK; 
+	}
+	else 
+	{
+		return E_NOT_OK; 
+	}
+	
 }
 
-int checkSoc(float soc)
+int checkSocOk(float soc )
 {
-   int val = batteryCheck(soc, 20, 80);
-    if(val == Check_NOT_OK){
-         printf("State of Charge out of range!\n");
-        return Check_NOT_OK;
-    }
-    else {
-         return Check_OK;
-    }      
+	int socStatus = E_OK;
+	if((soc >= MIN_LOWSOCBREACH) && (soc <= MIN_HIGHSOCWARNING))
+	{
+		socStatus = BatterySocLowLimit(soc);
+	}
+	else
+	{
+		socStatus = BatterySocHighLimit(soc);
+	}
+	return socStatus;
 }
 
-int checkchargeRate(float chargeRate)
-{
-   int val = batteryCheck(chargeRate, 0, 0.8);
-    if(val == Check_NOT_OK){
-         printf("State of Charge out of range!\n");
-        return Check_NOT_OK;
-    }
-    else {
-         return Check_OK;
-    }      
+int batteryCheck( float soc, float temp , float chargeRate, char tempUnit )
+{	
+	float stateOfCharge = checkSocOk(soc);
+	float temperature = checkTempOK(temp, tempUnit);
+	float chargerate = checkchargeRate(chargeRate);
+	return (stateOfCharge && temperature && chargerate);
 }
+
+
