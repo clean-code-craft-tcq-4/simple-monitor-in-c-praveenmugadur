@@ -2,11 +2,11 @@
 
 int BatteryTestIsOk(float Soc, float Temp , float ChargeRate, char TempUnit)
 {	
-	batteryCheckOK(Soc,Temp,ChargeRate,TempUnit);
+	return batteryCheckOK(Soc,Temp,ChargeRate,TempUnit);
 }
 int BatteryTestIsNotOk(float Soc, float Temp , float ChargeRate, char TempUnit)
 {	
-	batteryCheckNotOK(Soc,Temp,ChargeRate,TempUnit);
+	return batteryCheckNotOK(Soc,Temp,ChargeRate,TempUnit);
 }
 
 void BatteryStatusTest(void)
