@@ -66,7 +66,7 @@ int BatteryTempHighLimit(float temp, char tempUnit)
 	}
 	else 
 	{
-		inttBattConvertTemp(temp, tempUnit);
+		BatteryConvertTemp(temp, tempUnit);
 		return Check_NOT_OK; 
 	}
 	
@@ -77,11 +77,11 @@ int checkTempOK(float temp, char tempUnit )
 	int tempStatus = Check_OK;
 	if((temp >= MIN_LOWTEMPBREACH) && (temp < MIN_HIGHTEMPWARNING))
 	{
-		tempStatus = BattTempLowLimit(temp);
+		tempStatus = BatteryTempLowLimit(temp);
 	}
 	else
 	{
-		tempStatus = BattTempHighLimit(temp, tempUnit);
+		tempStatus = BatteryTempHighLimit(temp, tempUnit);
 	}
 	return tempStatus;
 }
