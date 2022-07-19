@@ -1,12 +1,12 @@
-#include "test_BmsStaus.h"
+#include "TestBatteryStatus.h"
 
 int BatteryTestIsOk(float Soc, float Temp , float ChargeRate, char TempUnit)
 {	
-	BatteryIsOk(Soc,Temp,ChargeRate,TempUnit);
+	batteryCheckOK(Soc,Temp,ChargeRate,TempUnit);
 }
 int BatteryTestIsNotOk(float Soc, float Temp , float ChargeRate, char TempUnit)
 {	
-	BatteryIsNotOk(Soc,Temp,ChargeRate,TempUnit);
+	batteryCheckNotOK(Soc,Temp,ChargeRate,TempUnit);
 }
 
 void BatteryStatusTest(void)
