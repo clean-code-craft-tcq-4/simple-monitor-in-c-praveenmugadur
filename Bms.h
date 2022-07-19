@@ -49,4 +49,4 @@ extern int batteryCheckOK( float soc, float temp , float chargeRate, char tempUn
 extern int batteryCheckNotOK( float soc, float temp , float chargeRate,char tempUnit);
 
 
-
+#endif
