@@ -33,20 +33,20 @@
 
 
 
-extern int BattSocLowLimit(float soc);
-extern int BattSocHighLimit(float soc);
-extern int BatterySocIsOk(float soc );
-extern int BattTempLowLimit(float temp);
-extern int BattTempHighLimit(float temp , char tempUnit);
-extern int BatteryTempIsOk(float temp , char tempUnit );
-extern int BattChargeRateLowLimit(float chargeRate);
-extern int BattChargeRateHighLimit(float chargeRate);
-extern int tBatteryChargeRateIsOk(float chargeRate );
-extern bool BattTempUnit(char cel);
-extern float BattConvertTemp(float temp, char tempUnit);
+extern int BatterySocLowLimit(float soc);
+extern int BatterySocHighLimit(float soc);
+extern int checkSocOk(float soc );
+extern int BatteryTempLowLimit(float temp);
+extern int BatteryTempHighLimit(float temp , char tempUnit);
+extern int checkTempOK(float temp , char tempUnit );
+extern int BatteryChargeRateLowLimit(float chargeRate);
+extern int BatteryChargeRateHighLimit(float chargeRate);
+extern int checkchargeRate(float chargeRate );
+extern bool BatteryTempUnit(char cel);
+extern float BatteryConvertTemp(float temp, char tempUnit);
 
-extern int batteryIsOk( float soc, float temp , float chargeRate, char tempUnit);
-extern int batteryIsNotOk( float soc, float temp , float chargeRate,char tempUnit);
+extern int batteryCheckOK( float soc, float temp , float chargeRate, char tempUnit);
+extern int batteryCheckNotOK( float soc, float temp , float chargeRate,char tempUnit);
 
 
 
