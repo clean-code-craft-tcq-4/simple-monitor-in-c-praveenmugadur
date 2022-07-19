@@ -152,7 +152,7 @@ int checkchargeRate(float chargeRate )
 
 
 
-int batteryCheck( float soc, float temp , float chargeRate, char tempUnit )
+int batteryCheckOK( float soc, float temp , float chargeRate, char tempUnit )
 {	
 	float stateOfCharge = checkSocOk(soc);
 	float temperature = checkTempOK(temp, tempUnit);
