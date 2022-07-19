@@ -105,6 +105,7 @@ float BatteryConvertTemp(float temp, char tempUnit)
 	{
 		return temp;
 	}
+	return celcius;
 }
 
 
