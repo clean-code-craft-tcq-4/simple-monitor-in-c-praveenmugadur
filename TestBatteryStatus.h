@@ -4,8 +4,8 @@
 #include <assert.h>
 #include "Bms.h"
 
-extern int BatteryTestIsOk(float Soc, float Temp , float ChargeRate, char TempUnit)
-extern int BatteryTestIsNotOk(float Soc, float Temp , float ChargeRate, char TempUnit)
+extern int BatteryTestIsOk(float Soc, float Temp , float ChargeRate, char TempUnit);
+extern int BatteryTestIsNotOk(float Soc, float Temp , float ChargeRate, char TempUnit);
 extern void BatteryStatusTest(void);
 
 
