@@ -6,7 +6,7 @@
 
 extern int BatteryTestIsOk(float Soc, float Temp , float ChargeRate, char TempUnit)
 extern int BatteryTestIsNotOk(float Soc, float Temp , float ChargeRate, char TempUnit)
-void BatteryStatusTest(void);
+extern void BatteryStatusTest(void);
 
 
 #endif
